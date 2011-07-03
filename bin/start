@@ -1,0 +1,10 @@
+#/usr/bin/env bash
+source lib/input.bash
+
+dir="$exercise"
+if [ -a "$dir" ] && [ -z "$version" ]; then
+  echo "Exercise directory $dir does already exist."
+else
+  mkdir -p "$dir"
+  touch "$dir/$version.c"
+fi

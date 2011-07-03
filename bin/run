@@ -1,0 +1,9 @@
+#/usr/bin/env bash
+source lib/input.bash
+
+program="$exercise/bin/$version"
+if [ -a "$program" ]; then
+  ./$program
+else
+  echo "File '$program' does not exist."
+fi
