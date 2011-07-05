@@ -3,7 +3,7 @@ source lib/input.bash
 
 test="$exercise/$version.test"
 if [ -a "$test" ]; then
-  roundup "$test"
+  ./vendor/roundup/bin/roundup "$test"
 else
   echo "File '$test' does not exist."
 fi
