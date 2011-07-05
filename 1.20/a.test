@@ -1,0 +1,76 @@
+describe "1.20"
+
+# Write a program detab that replaces tabs in the input with the proper number
+# of blanks to space to the next tab stop. Assume a fixed set of tab stops, say
+# every `n` columns. Should `n` be a variable or a symbolic parameter?
+
+assertion() {
+  input="$1"
+  expected="$2"
+  actual=`echo "$input" | 1.20/bin/a`
+
+  test "$expected" = "$actual"
+  echo $?
+}
+
+it_should_not_detab() {
+  assertion \
+    "1" \
+    "1"
+}
+
+it_should_not_detab_multi_line() {
+  assertion \
+    "1
+1" \
+    "1
+1"
+}
+
+it_should_detab_one_tab() {
+  assertion \
+    "\t" \
+    "        "
+}
+
+it_should_detab_two_tabs() {
+  assertion \
+    "\t\t" \
+    "                "
+}
+
+it_should_detab_one_tab_before() {
+  assertion \
+    "\t1" \
+    "        1"
+}
+
+it_should_detab_two_tabs_before() {
+  assertion \
+    "\t\t1" \
+    "                1"
+}
+
+it_should_detab_one_tab_after() {
+  assertion \
+    "1\t" \
+    "1       "
+}
+
+it_should_detab_two_tabs_after() {
+  assertion \
+    "1\t\t" \
+    "1               "
+}
+
+it_should_detab_one_tab_inside() {
+  assertion \
+    "1\t1" \
+    "1       1"
+}
+
+it_should_detab_two_tabs_inside() {
+  assertion \
+    "1\t\t1" \
+    "1               1"
+}
