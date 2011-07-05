@@ -7,4 +7,5 @@ if [ -a "$dir" ] && [ -z "$version" ]; then
 else
   mkdir -p "$dir"
   touch "$dir/$version.c"
+  touch "$dir/$version.test"
 fi
