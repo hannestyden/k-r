@@ -4,7 +4,7 @@ source lib/input.bash
 src="$exercise/$version.c"
 bin_dir="$exercise/bin"
 out="$bin_dir/$version"
-if [ -a "$src" ]; then
+if [[ -a "$src" ]]; then
   mkdir -p "$bin_dir"
   gcc -W -Wall -ansi -pedantic -o "$out" "$src"
 else

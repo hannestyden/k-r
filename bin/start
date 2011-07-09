@@ -2,7 +2,7 @@
 source lib/input.bash
 
 dir="$exercise"
-if [ -a "$dir" ] && [ -z "$version" ]; then
+if [[ -a "$dir" ]] && [[ -z "$version" ]]; then
   echo "Exercise directory $dir does already exist."
 else
   mkdir -p "$dir"

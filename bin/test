@@ -2,7 +2,8 @@
 source lib/input.bash
 
 test="$exercise/$version.test"
-if [ -a "$test" ]; then
+echo $test
+if [[ -a "$test" ]]; then
   ./vendor/roundup/bin/roundup "$test"
 else
   echo "File '$test' does not exist."
